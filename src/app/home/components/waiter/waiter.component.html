@@ -1,0 +1,9 @@
+<form [formGroup]="waiterForm" (ngSubmit)="onFormSubmit()">
+  <mat-label>Tarjoilijan/Kumppanin vaattet:</mat-label>
+  <mat-select formControlName="vaatteet" multiple>
+    <mat-option *ngFor="let option of vaattetList" [value]="option">{{
+      option
+    }}</mat-option>
+  </mat-select>
+  <button type="submit">Valitsen nämä!</button>
+</form>

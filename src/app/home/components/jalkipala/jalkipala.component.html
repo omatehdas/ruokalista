@@ -1,0 +1,9 @@
+<form [formGroup]="jalkiruokaForm" (ngSubmit)="onFormSubmit()">
+  <mat-label>Jälkiruuaksi</mat-label>
+  <mat-select formControlName="jalkiruuat" multiple>
+    <mat-option *ngFor="let jalkiruoka of jalkiruokaList" [value]="jalkiruoka">
+      {{ jalkiruoka }}
+    </mat-option>
+  </mat-select>
+  <button type="submit">Valitsen nämä!</button>
+</form>

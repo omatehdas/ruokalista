@@ -1,0 +1,43 @@
+<div *ngIf="name?.toLowerCase()?.includes('heidi'); else kukaVittuOlet">
+  <h1>Hei muru, {{ name }}.</h1>
+</div>
+<ng-template #kukaVittuOlet>
+  <div *ngIf="name">
+    {{ name }} ja kukas sinä olet! Pois täältä tai syötä uudelleen nimesi.
+    <button (click)="openNameDialog()">Avaa nimen syöttö uudestaan</button>
+  </div>
+</ng-template>
+<div *ngIf="vaatteet">
+  <h2><b>Tarjoilijan vaatteet:</b> {{ vaatteet }}</h2>
+</div>
+<div *ngIf="alkuruuat">
+  <h2><b>Alkuruuaksi:</b> {{ alkuruuat }}</h2>
+</div>
+<div *ngIf="paaruoka">
+  <h2><b>Pääruuaksi:</b> {{ paaruoka }}</h2>
+</div>
+<div *ngIf="jalkipala">
+  <h2><b>Jälkipalaksi:</b> {{ jalkipala }}</h2>
+</div>
+<div *ngIf="palvelut">
+  <h2><b>Palveluksi haluisin:</b> {{ palvelut }}</h2>
+</div>
+<div *ngIf="name?.toLowerCase()?.includes('heidi')">
+  <app-waiter (newVaattet)="setVaatteet($event)" *ngIf="!vaatteet"></app-waiter>
+  <app-alkuruoka
+    (newAlkuruoka)="setAlkuruoka($event)"
+    *ngIf="vaatteet && !alkuruuat"
+  ></app-alkuruoka>
+  <app-paaruoka
+    (newPaaruoka)="setPaaruoka($event)"
+    *ngIf="alkuruuat && !paaruoka"
+  ></app-paaruoka>
+  <app-jalkipala
+    (newJalkipala)="setJalkipala($event)"
+    *ngIf="paaruoka && !jalkipala"
+  ></app-jalkipala>
+  <app-palvelut
+    (newPalvelu)="setPalvelu($event)"
+    *ngIf="jalkipala && !palvelut"
+  ></app-palvelut>
+</div>

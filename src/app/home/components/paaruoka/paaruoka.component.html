@@ -1,0 +1,9 @@
+<form [formGroup]="paaruokaForm" (ngSubmit)="onFormSubmit()">
+  <mat-label>Pääruuaksi</mat-label>
+  <mat-select formControlName="paaruuat" multiple>
+    <mat-option *ngFor="let paaruoka of paaruokaList" [value]="paaruoka">
+      {{ paaruoka }}
+    </mat-option>
+  </mat-select>
+  <button type="submit">Valitsen nämä!</button>
+</form>
