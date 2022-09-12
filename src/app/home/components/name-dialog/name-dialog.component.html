@@ -3,7 +3,12 @@
   <mat-label>Lempi ihmiseni nimi.</mat-label>
   <input type="text" matInput [formControl]="name" />
   <div mat-dialog-actions>
-    <button mat-button [mat-dialog-close]="name.value" cdkFocusInitial>
+    <button
+      color="primary"
+      mat-flat-button
+      [mat-dialog-close]="name.value"
+      cdkFocusInitial
+    >
       Eteenpäin
     </button>
   </div>

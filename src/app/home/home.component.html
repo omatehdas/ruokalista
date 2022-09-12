@@ -1,11 +1,23 @@
-<div *ngIf="name?.toLowerCase()?.includes('heidi'); else kukaVittuOlet">
+<div
+  class="home-title"
+  *ngIf="name?.toLowerCase()?.includes('heidi'); else kukaVittuOlet"
+>
   <h1>Hei muru, {{ name }}.</h1>
 </div>
 <ng-template #kukaVittuOlet>
-  <div *ngIf="name">
-    {{ name }} ja kukas sinä olet!<br />
-    Pois täältä tai syötä uudelleen nimesi.
-    <button (click)="openNameDialog()">Avaa nimen syöttö uudestaan</button>
+  <div class="home-intruder" *ngIf="name">
+    <div class="home-intruder-textarea">
+      {{ name }} ja kukas sinä olet!<br />
+      Pois täältä tai syötä uudelleen nimesi.
+    </div>
+    <button
+      class="home-intruder-button"
+      color="primary"
+      mat-flat-button
+      (click)="openNameDialog()"
+    >
+      Avaa nimen syöttö uudestaan
+    </button>
   </div>
 </ng-template>
 <div *ngIf="vaatteet">
